@@ -312,6 +312,18 @@
                     </tr>
                 @endforeach
             </table>
+            @if(!$hd->TTthanhtoan)
+                <div class="d-flex justify-content-end mt-3">
+                    <a href="{{ route('hoadon.thanhtoan', $hd->mahd) }}" class="btn btn-primary">
+                        Thanh Toán
+                    </a>
+                </div>
+            @endif
+
+
+
+
+
 {{--            <div class="d-flex justify-content-center">--}}
 {{--                {{ $hoadon->links('pagination::bootstrap-4') }}--}}
 {{--            </div>--}}

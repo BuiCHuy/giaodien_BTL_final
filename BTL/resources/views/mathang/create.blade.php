@@ -48,4 +48,42 @@ crossorigin="anonymous">
         <button type="submit" class="btn btn-primary">Thêm</button>
     </form>
 
+    <script>
+        var dsmamh = @json($nmathang);
+        const maMatHang = document.getElementById('mamh');
+
+        const tenmh = document.getElementById('tenmh');
+        const dongia = document.getElementById('dongia');
+        const gianhap = document.getElementById('gianhap');
+        const tenlh = document.getElementById('malh');
+
+        maMatHang.addEventListener('blur', function(){
+            autoWrite();
+        });
+
+        function autoWrite(){
+            const mamh = maMatHang.value;
+            dsmamh.forEach(mh =>{
+                if(mh.mamh.trim() === mamh){
+                    console.log('mat hang ton tai');
+
+                    console.log(mh.tenmh);
+                    tenmh.value = mh.tenmh;
+                    console.log(mh.dongia);
+                    dongia.value = mh.dongia;
+                    console.log(mh.gianhap);
+                    gianhap.value = mh.gianhap;
+
+                    const dstenlh = tenlh.options;
+                    for(let i = 0 ; i < dstenlh.length ; i++){
+                        if(dstenlh[i].value === mh.malh){
+                            dstenlh[i].selected = true;
+                        }
+                    }
+
+                }
+            });
+        }
+    </script>
+
 </body>

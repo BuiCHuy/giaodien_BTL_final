@@ -281,6 +281,7 @@
                     <th>Mã nhân viên</th>
                     <th>Ngày lập</th>
                     <th>Tổng tiền</th>
+                    <th>Trạng thái Thanh Toán</th>
 
                     <th>Action</th>
                 </tr>
@@ -293,6 +294,7 @@
                         <td>{{$hd->makh}}</td>
                         <td>{{$hd->ngaylap}}</td>
                         <td>{{$hd->tongtien}}</td>
+                        <td>{{$hd->TTthanhtoan ? 'Đã thanh toán':'Chưa thanh toán'}}</td>
 
                         <td>
                             <div class="d-flex flex-row">
@@ -301,7 +303,9 @@
                                 <a href="{{ route('hoadons.quyDoiDiem', $hd->mahd) }}" class="btn btn-success d-flex align-items-center justify-content-center text-white">
                                     Quy Đổi Điểm
                                 </a>
-
+                                <a href="{{ route('hoadon.tichDiem', ['makh'=>$hd->makh,'tien'=>$hd->tongtien]) }}" class="btn btn-success d-flex align-items-center justify-content-center text-white">
+                                    Tích Điểm
+                                </a>
                                 <form action="{{route('hoadon.destroy',$hd->mahd)}}" class="btn btn-danger d-flex align-items-center justify-content-center" method="POST">
                                     @csrf
                                     @method('DELETE')

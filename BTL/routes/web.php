@@ -9,6 +9,7 @@ use App\Http\Controllers\KhachHangController;
 use App\Http\Controllers\LoaiHangController;
 use App\Http\Controllers\MatHangController;
 use App\Http\Controllers\NhanVienController;
+use App\Http\Controllers\thanhtoan;
 use App\Http\Controllers\ThongKeController;
 use App\Http\Controllers\tienlai_ctrl;
 use App\Http\Controllers\top5seller_ctrl;
@@ -91,9 +92,11 @@ Route::get('/hoadon/{id}/edit', hoadon_controller::class.'@edit')->name('hoadon.
 Route::post('hoadon/{id}', hoadon_controller::class.'@update')->name('hoadon.update');
 Route::delete('hoadon/{id}', hoadon_controller::class.'@destroy')->name('hoadon.destroy');
 Route::get('hoadon/{id}/chitiet',hoadon_controller::class.'@chitiet')->name('hoadon.chitiet');
-
-
+Route::get('hoadon/{mahd}/thanhtoan',hoadon_controller::class.'@thanhtoan')->name('hoadon.thanhtoan');
+Route::get('thongke/thanhtoan',[thanhtoan::class,'index'])->name('thanhtoan');
 Route::get('/hoadons/quydoidiem/{mahd}', [hoadon_controller::class, 'quyDoiDiem'])->name('hoadons.quyDoiDiem');
+Route::get('/hoadon/tichdiem/{makh}/{tien}', [hoadon_controller::class, 'tichDiem'])->name('hoadon.tichDiem');
+
 Route::get('/thongke',function(){
     return view('thongke.index');
 })->name('thongke');

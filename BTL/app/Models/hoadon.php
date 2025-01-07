@@ -12,7 +12,7 @@ class hoadon extends Model
     protected $primaryKey = 'mahd';
     protected $keyType = 'string';
     public $incrementing = false;
-    protected $fillable = ['mahd','makh','manv','ngaylap','tongtien'];
+    protected $fillable = ['mahd','makh','manv','ngaylap','tongtien','TTthanhtoan'];
     public $timestamps = false;
     function khachhang(){
         return $this->belongsTo(KhachHang::class,'makh','makh');

@@ -12,20 +12,12 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-        <div class="container-fluid">
-            <a class="navbar-brand h1" href="{{ route('nhanviens.index') }}">CRUDPosts</a>
-            <div class="justify-end ">
-                <div class="col ">
-                    <a class="btn btn-sm btn-success" href="{{ route('nhanviens.create') }}">Thêm mới</a>
-                </div>
-            </div>
-    </nav>
+
 
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1>Thêm mới bài đăng</h1>
+                <h1>Thêm mới Nhân viên</h1>
                 <form action="{{ route('nhanviens.store') }}" method="POST">
                     @csrf
                     <div class="mb-3">

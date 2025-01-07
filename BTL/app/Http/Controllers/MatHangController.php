@@ -26,7 +26,8 @@ class MatHangController extends Controller
     public function create()
     {
         $nloaihang = LoaiHang::all();
-        return view('mathang.create', compact('nloaihang'));
+        $nmathang = MatHang::all();
+        return view('mathang.create', compact('nloaihang', 'nmathang'));
     }
 
     /**
@@ -40,8 +41,8 @@ class MatHangController extends Controller
        $dongia = $request->input('dongia');
        $soluong = $request->input('soluong');
        $gianhap = $request->input('gianhap');
-       
-       DB::statement('exec p_InsertMatHang @mamh = ?, @tenmh = ?, @malh = ?, @dongia = ?, @soluong = ?, @gianhap = ?', 
+
+       DB::statement('exec p_InsertMatHang @mamh = ?, @tenmh = ?, @malh = ?, @dongia = ?, @soluong = ?, @gianhap = ?',
                     [$mamh, $tenmh, $malh, $dongia, $soluong, $gianhap]);
 
         return redirect()->route('nmathang.index');
@@ -77,8 +78,8 @@ class MatHangController extends Controller
         $dongia = $request->input('dongia');
         $soluong = $request->input('soluong');
         $gianhap = $request->input('gianhap');
-        
-        DB::statement('exec p_UpdateMatHang @mamh = ?, @tenmh = ?, @malh = ?, @dongia = ?, @soluongtrongkho = ?, @gianhap = ?', 
+
+        DB::statement('exec p_UpdateMatHang @mamh = ?, @tenmh = ?, @malh = ?, @dongia = ?, @soluongtrongkho = ?, @gianhap = ?',
                         [$mamh, $tenmh, $malh, $dongia, $soluong, $gianhap]);
 
         return redirect()->route('nmathang.index');

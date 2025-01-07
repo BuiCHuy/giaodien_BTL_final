@@ -12,25 +12,22 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-        <div class="container-fluid">
-            <a class="navbar-brand h1" href="{{ route('nhanviens.index') }}">CRUDPosts</a>
-            <div class="justify-end ">
-                <div class="col ">
-                    <a class="btn btn-sm btn-success" href="{{ route('nhanviens.create') }}">Thêm mới</a>
-                </div>
-            </div>
-    </nav>
+
 
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1>Thêm mới bài đăng</h1>
+                <h1>Thanh toán lương </h1>
                 <form action="{{ route('nhanviens.tts') }}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="manv" class="form-label">Mã nhân viên</label>
-                        <input type="text" class="form-control" id="manv" name="manv" required>
+
+                        <select class="form-control" name="manv" id="manv">
+                            @foreach ($nvs as $nv)
+                                <option value="{{$nv->manv}}">{{$nv->manv}}<option>
+                            @endforeach
+                        </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Lưu</button>
                 </form>

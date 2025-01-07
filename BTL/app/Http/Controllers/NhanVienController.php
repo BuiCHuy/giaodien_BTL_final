@@ -22,7 +22,7 @@ class NhanVienController extends Controller
      */
     public function create()
     {
-        
+
         return view('nhanviens.create');
     }
 
@@ -58,7 +58,7 @@ class NhanVienController extends Controller
     public function edit(string $id)
     {
         $nhanvien = NhanVien::findOrFail($id);
-        
+
         return view('nhanviens.edit',compact('nhanvien'));
     }
 
@@ -93,20 +93,21 @@ class NhanVienController extends Controller
     public function ttl()
     {
         $thanhtoanluongs = ThanhToanLuong::all();
-        
+
         DB::statement('exec sp_in_thanhtoanluong');
-        
+
         return view('nhanviens.ttl', compact( 'thanhtoanluongs'));
     }
 
     public function tt()
     {
-        return view('nhanviens.tt');
+        $nvs = NhanVien::all();
+        return view('nhanviens.tt',compact('nvs'));
     }
 
     public function tts(Request $request)
     {
-        
+
         $manv = $request->input(key: 'manv');
         DB::statement('exec insertThanhToanLuong @manv=?',[$manv] );
         return redirect()->route(route: 'nhanviens.index')->with('success', 'Thêm thành công');

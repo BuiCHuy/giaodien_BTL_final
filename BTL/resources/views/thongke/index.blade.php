@@ -83,6 +83,15 @@
                 </div>
             </div>
         </div>
+        <div class="col">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Thống Kê Hóa đơn đã được thanh toán</h5>
+                    <p class="card-text">Thanh toán.</p>
+                    <a href="{{route('thanhtoan')}}" class="btn btn-primary">Xem Thống Kê</a>
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>

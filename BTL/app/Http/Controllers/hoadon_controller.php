@@ -98,4 +98,13 @@ class hoadon_controller extends Controller
         DB::statement('EXEC proc_QuyDoiDiem ?', [$mahd]);
         return redirect()->route('hoadon.index')->with('success', 'Quy đổi điểm thành công!');
     }
+    public function thanhtoan(string $mahd){
+
+        DB::statement('exec thanhtoan ?', [$mahd]);
+        return redirect()->route('hoadon.index')->with('success', 'Thanh toán thành công!');
+    }
+    public function tichDiem(string $makh,int $tien ){
+        DB::statement('exec proc_tichDiem ?, ?', [$makh,$tien]);
+        return redirect()->route('hoadon.index')->with('success', 'Tích thành công!');
+    }
 }

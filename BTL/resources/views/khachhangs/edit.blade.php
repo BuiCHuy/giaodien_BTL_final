@@ -12,19 +12,11 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-        <div class="container-fluid">
-            <a class="navbar-brand h1" href="{{ route('khachhangs.index') }}">CRUDPosts</a>
-            <div class="justify-end ">
-                <div class="col ">
-                    <a class="btn btn-sm btn-success" href="{{ route('khachhangs.create') }}">Thêm mới</a>
-                </div>
-            </div>
-    </nav>
+
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1>Sửa bài đăng</h1>
+                <h1>Sửa Khách hàng</h1>
                 <form action="{{ route('khachhangs.update', $khachhang->makh) }}" method="POST">
                     @csrf
                     @method('PUT')
