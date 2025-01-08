@@ -252,14 +252,19 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
+
                         <h2>Chi tiết hóa đơn {{$hd->mahd}}</h2>
-                    </div>
-
-                    <div class="col-sm-6">
-                        <a href="{{route('hoadon.index')}}" class="btn btn-success">Trở về</a>
-                        <a href="{{route('cthd.create',$hd->mahd)}}" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>Thêm chi tiết hóa đơn</span></a>
 
                     </div>
+                    @if(!$hd->TTthanhtoan)
+                        <div class="col-sm-6">
+
+
+                            <a href="{{route('cthd.create',$hd->mahd)}}" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>Thêm chi tiết hóa đơn</span></a>
+
+                        </div>
+                        @endif
+
                 </div>
             </div>
             @if(session('success'))
@@ -293,17 +298,20 @@
                         <td>{{$ct->thanhtien}}</td>
 
                         <td>
-                            <div class="d-flex flex-row">
+                            @if(!$hd->TTthanhtoan)
+                                <div class="d-flex flex-row">
 
-                                <a href="{{route('cthd.edit',['mahd'=>$ct->mahd,'mamh'=>$ct->mamh])}}" class="btn btn-primary d-flex align-items-center justify-content-center"><i class="bi bi-pen"></i></a>
+                                    <a href="{{route('cthd.edit',['mahd'=>$ct->mahd,'mamh'=>$ct->mamh])}}" class="btn btn-primary d-flex align-items-center justify-content-center"><i class="bi bi-pen"></i></a>
 
 
-                                <form action="{{route('cthd.destroy',['mahd'=>$hd->mahd,'mamh'=>$ct->mamh])}}" class="btn btn-danger" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger "><i class="bi bi-trash"></i></button>
-                                </form>
-                            </div>
+                                    <form action="{{route('cthd.destroy',['mahd'=>$hd->mahd,'mamh'=>$ct->mamh])}}" class="btn btn-danger" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger "><i class="bi bi-trash"></i></button>
+                                    </form>
+                                </div>
+                            @endif
+
 
 
 
@@ -328,6 +336,9 @@
 {{--                {{ $hoadon->links('pagination::bootstrap-4') }}--}}
 {{--            </div>--}}
         </div>
+    </div>
+    <div class="text-end">
+        <a href="{{ route('hoadon.index') }}" class="me-3 btn btn-success m-3">Quay về</a>
     </div>
 </div>
 

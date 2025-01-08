@@ -300,7 +300,7 @@
                             <div class="d-flex flex-row">
                                 <a href="{{route('hoadon.chitiet',$hd->mahd)}}" class="btn btn-info d-flex align-items-center justify-content-center text-white">Chi tiết</a>
                                 <a href="{{route('hoadon.edit',$hd->mahd)}}" class="btn btn-primary d-flex align-items-center justify-content-center text-white">Sửa</a>
-                                <a href="{{ route('hoadons.quyDoiDiem', $hd->mahd) }}" class="btn btn-success d-flex align-items-center justify-content-center text-white">
+                                <a href="{{$hd->TTthanhtoan? route('hoadon.index'): route('hoadons.quyDoiDiem', $hd->mahd) }}" class="btn btn-success d-flex align-items-center justify-content-center text-white">
                                     Quy Đổi Điểm
                                 </a>
                                 <a href="{{ route('hoadon.tichDiem', ['makh'=>$hd->makh,'tien'=>$hd->tongtien]) }}" class="btn btn-success d-flex align-items-center justify-content-center text-white">
@@ -320,9 +320,9 @@
                     </tr>
                 @endforeach
             </table>
-            <div class="d-flex justify-content-center">
-                {{ $hoadon->links('pagination::bootstrap-4') }}
-            </div>
+{{--            <div class="d-flex justify-content-center">--}}
+{{--                {{ $hoadon->links('pagination::bootstrap-4') }}--}}
+{{--            </div>--}}
         </div>
     </div>
 </div>

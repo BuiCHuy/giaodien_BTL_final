@@ -16,7 +16,7 @@ class hoadon_controller extends Controller
      */
     public function index()
     {
-        $hoadon=hoadon::with(['khachhang','nhanvien'])->paginate(5);
+        $hoadon=hoadon::with(['khachhang','nhanvien'])->get();
         return view('hoadon.index',compact('hoadon'));
     }
 
